@@ -15,6 +15,7 @@ const ChatHeader: React.FC<ChatHeaderProps> = ({
 }) => {
   const [dragOver, setDragOver] = useState(false);
   const [pdfName, setPdfName] = useState<string | null>(null);
+  const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
   const handleFileUpload = async (
     event: React.ChangeEvent<HTMLInputElement>
@@ -26,7 +27,7 @@ const ChatHeader: React.FC<ChatHeaderProps> = ({
       const formData = new FormData();
       formData.append("files", file);
       try {
-        const response = await fetch("http://localhost:8000/api/v1/upload", {
+        const response = await fetch(`${API_BASE_URL}/api/v1/upload`, {
           method: "POST",
           body: formData,
         });
