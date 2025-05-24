@@ -9,3 +9,4 @@ langchain
 groq
 langchain_groq
 pydantic==2.9.2
+python-multipart
